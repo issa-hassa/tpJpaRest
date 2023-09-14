@@ -6,11 +6,11 @@ import jakarta.persistence.Persistence;
 
 public class EntityManagerHelper {
 
-    private static final EntityManagerFactory emf; 
+    private static final EntityManagerFactory emf;
     private static final ThreadLocal<EntityManager> threadLocal;
 
     static {
-        emf = Persistence.createEntityManagerFactory("dev");      
+        emf = Persistence.createEntityManagerFactory("dev");
         threadLocal = new ThreadLocal<EntityManager>();
     }
 
@@ -46,5 +46,11 @@ public class EntityManagerHelper {
 
     public static void commit() {
         getEntityManager().getTransaction().commit();
-    } 
+    }
 }
+
+/**
+ * export M2_HOME=/path/to/apache-maven-3.8.4
+ * export M2=$M2_HOME/bin
+ * export PATH=$M2:$PATH
+ */

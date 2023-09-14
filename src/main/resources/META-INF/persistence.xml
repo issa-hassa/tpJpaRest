@@ -10,7 +10,7 @@
 			<property name="jakarta.persistence.jdbc.driver"
 				value="org.hsqldb.jdbcDriver" />
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:hsqldb:hsql://localhost/" />
+					  value="jdbc:hsqldb:hsql://localhost/" />
 			<property name="jakarta.persistence.jdbc.user" value="sa" />
 			<property name="jakarta.persistence.jdbc.password" value="" />
 			<property
@@ -27,12 +27,12 @@
 			<property name="jakarta.persistence.jdbc.driver"
 				value="org.hsqldb.jdbcDriver" />
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:hsqldb:hsql://localhost/" />
+				value="jdbc:hsqldb:hsql://localhost/xdb" />
 			<property name="jakarta.persistence.jdbc.user" value="sa" />
 			<property name="jakarta.persistence.jdbc.password" value="" />
 			<property
 				name="jakarta.persistence.schema-generation.database.action"
-				value="update" />
+				value="drop-and-create" />
 			<property name="jakarta.persistence.dialect"
 				value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
@@ -42,7 +42,7 @@
 
 	<persistence-unit name="mysql">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
- 
+
 		<properties>
 			<property name="jakarta.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
@@ -52,7 +52,7 @@
 			<property name="jakarta.persistence.jdbc.password" value="tlc" />
 			<property
 				name="jakarta.persistence.schema-generation.database.action"
-				value="update" />
+				value="drop-and-create" />
 			<property name="jakarta.persistence.dialect"
 				value="org.hibernate.dialect.MySQL8Dialect" />
 			<property name="hibernate.show_sql" value="true" />
