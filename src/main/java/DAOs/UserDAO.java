@@ -6,11 +6,12 @@ import domain.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-public class UserDAO {
+public class UserDAO<T extends Serializable> {
 
     EntityManager em;
 
@@ -51,6 +52,7 @@ public class UserDAO {
     public List<User> getAllUsers(){
         return  this.em.createQuery("SELECT e FROM User e").getResultList();
     }
+
     public void createProUser(String nom,String prenom, String login,String passWord){
         User user = new Professionnel( nom,  prenom,  login,  passWord);
         this.em.persist(user);

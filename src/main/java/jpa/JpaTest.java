@@ -93,7 +93,7 @@ public class JpaTest {
 			System.out.println("SELECT A NAME FOR THE RDV : ");
 			int i = 0;
 			List<Enum> enumList = new ArrayList<>();
-			for (Enum name:Professionnel.Title.values()) {
+			for (String name:Professionnel.Title.values()) {
 				System.out.println(i+" :" + name.name());
 				enumList.add(name);
 				i++;

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+import java.util.Date;
+
 @Entity
 @XmlRootElement(name = "Client")
 public class RDV {
@@ -12,6 +14,9 @@ public class RDV {
     private String nom;
     private Client client;
     private Professionnel professionnel;
+    private Date date;
+
+
 
     public RDV() {
     }
@@ -20,19 +25,25 @@ public class RDV {
         this.nom = nom;
     }
 
+
     @Id
     @GeneratedValue
     @XmlElement(name = "id")
     public Long getId() {
         return id;
     }
-    @XmlElement(name = "Intitilé")
+    @XmlElement(name = "Intitulé")
     public String getNom() {
         return nom;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
     @ManyToOne
     @XmlElement(name = "Client")
-    public Client getUtilisateur() {
+    public Client getClient() {
         return client;
     }
     @ManyToOne
@@ -49,11 +60,20 @@ public class RDV {
         this.nom = nom;
     }
 
-    public void setUtilisateur(Client client) {
+    public void setClient(Client client) {
+
         this.client = client;
+        client.getListRdv().add(this);
     }
 
     public void setProfessionnel(Professionnel professionnel) {
+
         this.professionnel = professionnel;
+        professionnel.getListRDV().add(this);
     }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
 }

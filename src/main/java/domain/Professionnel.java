@@ -17,8 +17,9 @@ public class Professionnel extends User {
     private String urlRDV;
 
     private List<RDV> listRDV;
-    private Enum title;
 
+    private RdvIntitules intitules;
+    private Enum title;
     public static enum Title {
         RDV0,
         RDV1,
@@ -26,6 +27,7 @@ public class Professionnel extends User {
     }
     public Professionnel() {
         this.listRDV = new ArrayList<>();
+        intitules = new RdvIntitules();
 
 
     }
@@ -33,19 +35,28 @@ public class Professionnel extends User {
     public Professionnel(String nom) {
         super(nom);
         this.listRDV = new ArrayList<>();
+        intitules = new RdvIntitules();
+
+
     }
 
     public Professionnel(String nom, String prenom, String login, String motDePasse) {
         super(nom, prenom, login, motDePasse);
         this.listRDV = new ArrayList<>();
+        intitules = new RdvIntitules();
+
 
     }
+
 
     @OneToMany(mappedBy = "professionnel")
     @XmlElement(name = "RDVS")
     public List<RDV> getListRDV() {
         return Collections.unmodifiableList(this.listRDV);
     }
+
+
+
 
     public void setUrlRDV(String urlRDV) {
         this.urlRDV = urlRDV;
@@ -55,5 +66,9 @@ public class Professionnel extends User {
     public void setListRDV(List<RDV> ListRDV) {
         this.listRDV = ListRDV;
     }
+
+
+
+
 
 }

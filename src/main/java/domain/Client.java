@@ -31,14 +31,14 @@ public class Client extends User {
 
     @OneToMany(mappedBy = "utilisateur")
     @XmlElement(name = "RDVS")
-    public List<RDV> getListRdvistRdv() {
+    public List<RDV> getListRdv() {
         return Collections.unmodifiableList(this.listRdv);
     }
 
 
 
 
-    public void setListRdvistRdv(List<RDV> listRdv) {
+    public void setListRdv(List<RDV> listRdv) {
         this.listRdv = listRdv;
     }
 }
