@@ -29,7 +29,7 @@ public class Client extends User {
 
 
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "client")
     @XmlElement(name = "RDVS")
     public List<RDV> getListRdv() {
         return Collections.unmodifiableList(this.listRdv);

@@ -93,11 +93,7 @@ public class JpaTest {
 			System.out.println("SELECT A NAME FOR THE RDV : ");
 			int i = 0;
 			List<Enum> enumList = new ArrayList<>();
-			for (String name:Professionnel.Title.values()) {
-				System.out.println(i+" :" + name.name());
-				enumList.add(name);
-				i++;
-			}
+
 			int enumIndex = sc.nextInt();
 			if(enumIndex < 0 || enumIndex >= enumList.size()){
 				System.out.println("please select a valid index ");
@@ -106,7 +102,7 @@ public class JpaTest {
 			RDV rdv = new RDV(enumList.get(enumIndex).name());
 			manager.persist(rdv);
 			rdv.setProfessionnel(professionnels.get(proIndex));
-			rdv.setUtilisateur(clients.get(userIndex));
+			//rdv.setClient(clients.get(userIndex));
 
 
 
