@@ -4,8 +4,10 @@ package domain;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
 @Inheritance(strategy = InheritanceType.JOINED)
 @XmlRootElement(name = "User")
 public abstract class User {

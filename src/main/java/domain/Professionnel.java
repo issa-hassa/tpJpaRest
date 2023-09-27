@@ -6,11 +6,13 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jdk.jshell.execution.Util;
 import org.hibernate.boot.model.relational.Sequence;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Entity
-@XmlRootElement(name = "Professionnel")
+@Component
 public class Professionnel extends User {
 
 
@@ -43,6 +45,7 @@ public class Professionnel extends User {
 
     @OneToMany(mappedBy = "professionnel")
     @XmlElement(name = "RDVS")
+    @Autowired
     public List<RDV> getListRDV() {
         return Collections.unmodifiableList(this.listRDV);
     }

@@ -2,16 +2,20 @@ package domain;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
+
 import jakarta.xml.bind.annotation.XmlRootElement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@Component
 @Entity
-@XmlRootElement(name = "Client")
 public class Client extends User {
+
 
     List<RDV> listRdv;
 
@@ -31,6 +35,7 @@ public class Client extends User {
 
     @OneToMany(mappedBy = "utilisateur")
     @XmlElement(name = "RDVS")
+    @Autowired
     public List<RDV> getListRdvistRdv() {
         return Collections.unmodifiableList(this.listRdv);
     }

@@ -3,9 +3,11 @@ package domain;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Entity
-@XmlRootElement(name = "Client")
+@Component
 public class RDV {
 
     private Long id;
@@ -32,11 +34,14 @@ public class RDV {
     }
     @ManyToOne
     @XmlElement(name = "Client")
+    @Autowired
+
     public Client getUtilisateur() {
         return client;
     }
     @ManyToOne
     @XmlElement(name = "Professionnel")
+    @Autowired
     public Professionnel getProfessionnel() {
         return professionnel;
     }
