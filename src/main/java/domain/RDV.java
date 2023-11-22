@@ -3,11 +3,19 @@ package domain;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
 @XmlRootElement(name = "Client")
+@AllArgsConstructor
+@Setter
+@Getter
+@NoArgsConstructor
 public class RDV {
 
     private Long id;
@@ -17,9 +25,6 @@ public class RDV {
     private Date date;
 
 
-
-    public RDV() {
-    }
 
     public RDV(String nom) {
         this.nom = nom;
@@ -52,22 +57,17 @@ public class RDV {
         return professionnel;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     public void setClient(Client client) {
-
         this.client = client;
         client.getListRdv().add(this);
     }
 
     public void setProfessionnel(Professionnel professionnel) {
-
         this.professionnel = professionnel;
         professionnel.getListRDV().add(this);
     }
