@@ -18,19 +18,17 @@ public class UserRessource {
     UserDAO userDAO;
     EntityManager em;
 
-
-
-
     @GET
     @Path("/{UserName}")
     public User getUserByName(@PathParam("UserName") String name){
         EntityManager manager = EntityManagerHelper.getEntityManager();
         EntityTransaction tx = manager.getTransaction();
         userDAO = new UserDAO<>(manager);
-        User u;
+
         tx.begin();
-        u = userDAO.getUserByName(name);
+        User u = userDAO.getUserByName(name);
         tx.commit();
+
         return u;
     }
     @GET
